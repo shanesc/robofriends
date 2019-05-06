@@ -26,8 +26,11 @@ class App extends React.Component {
             return robot.email.toLowerCase().includes(this.state.searchfield.toLowerCase());
         });
 
-        // const filteredRobots = [].concat(filteredName).concat(filteredEmail);
-        return filteredName;
+        const filteredRobots = [].concat(filteredName).concat(filteredEmail).filter((value, i, arr) => {
+            return arr.indexOf(value) === i;
+        });
+        
+        return filteredRobots;
     }
 
     render() {
